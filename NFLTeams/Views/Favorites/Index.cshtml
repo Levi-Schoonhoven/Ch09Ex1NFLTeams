@@ -1,16 +1,24 @@
 ﻿@model TeamListViewModel
+
 @{
+    //var session = new NFLSession();
     ViewData["Title"] = "Favorites";
+
 }
 
+
 <div class="text-center">
-    <h2>My Favorites</h2>
+
+    <h2></h2>
     <form asp-action="Delete" method="post">
         <a asp-action="Index" asp-controller="Home" class="btn btn-primary"
            asp-route-activeConf ="@Model.ActiveConf" 
            asp-route-activeDiv="@Model.ActiveDiv">
             Back to Home Page
         </a>
+       <a asp-action="Index" asp-controller="Name" class="btn btn-primary">
+           Change Name (favorites index)
+       </a>
         <button type="submit" class="btn btn-primary">
             Clear Favorites
         </button>

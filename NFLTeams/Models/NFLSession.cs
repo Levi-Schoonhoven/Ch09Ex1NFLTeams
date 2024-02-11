@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Linq;
 using Microsoft.AspNetCore.Http;
 
 namespace NFLTeams.Models
@@ -9,8 +10,14 @@ namespace NFLTeams.Models
         private const string CountKey = "teamcount";
         private const string ConfKey = "conf";
         private const string DivKey = "div";
+        public NFLSession Session { get; set; }
 
         public string UserName { get; set; }
+
+        public void setName(string userName) =>
+           session.SetString(TeamsKey, userName);
+        public void GetName(string userName) =>
+           session.SetString(TeamsKey, userName);
 
         private ISession session { get; set; }
         public NFLSession(ISession session) {
@@ -20,6 +27,7 @@ namespace NFLTeams.Models
         public void SetMyTeams(List<Team> teams) {
             session.SetObject(TeamsKey, teams);
             session.SetInt32(CountKey, teams.Count);
+            
         }
         public List<Team> GetMyTeams() =>
             session.GetObject<List<Team>>(TeamsKey) ?? new List<Team>();

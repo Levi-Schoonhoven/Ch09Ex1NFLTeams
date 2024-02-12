@@ -22,7 +22,7 @@ namespace NFLTeams.Controllers
         [HttpPost]
         public RedirectToActionResult Change(TeamListViewModel model) {
             var session = new NFLSession(HttpContext.Session);
-            session.setName(model.UserName);
+            session.SetName(model.UserName);
                 return RedirectToAction("Index","Home", new { 
                     ActiveConf = session.GetActiveConf(),
                     ActiveDiv = session.GetActiveDiv()});

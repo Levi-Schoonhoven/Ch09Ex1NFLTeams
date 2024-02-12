@@ -1,15 +1,16 @@
 ﻿@model TeamListViewModel
 
 @{
-    //var session = new NFLSession();
+    NFLSession session;
     ViewData["Title"] = "Favorites";
 
 }
 
 
 <div class="text-center">
-
-    <h2></h2>
+    <h2>
+       
+    </h2>
     <form asp-action="Delete" method="post">
         <a asp-action="Index" asp-controller="Home" class="btn btn-primary"
            asp-route-activeConf ="@Model.ActiveConf" 

@@ -13,16 +13,16 @@ namespace NFLTeams.Models
         public NFLSession Session { get; set; }
 
         public string UserName { get; set; }
-
-        public void setName(string userName) =>
-           session.SetString(TeamsKey, userName);
-        public void GetName(string userName) =>
-           session.SetString(TeamsKey, userName);
+        public string GetName() => session.GetString(UserName);
+        public void SetName(string userName) =>
+           session.SetString(UserName, userName);
+        
 
         private ISession session { get; set; }
         public NFLSession(ISession session) {
             this.session = session;
         }
+        
 
         public void SetMyTeams(List<Team> teams) {
             session.SetObject(TeamsKey, teams);

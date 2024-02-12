@@ -58,6 +58,7 @@ namespace NFLTeams.Controllers
 
         public IActionResult Details(string id)
         {
+         
             var session = new NFLSession(HttpContext.Session);
             var model = new TeamViewModel
             {
